@@ -19,14 +19,14 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang='en'>
+        <html lang='en' className='h-full'>
             <body
-                className={`${montserrat.variable}  antialiased max-w-screen`}
+                className={`${montserrat.variable}  antialiased max-w-screen h-full`}
             >
                 <div className='w-full flex justify-center'>
                     <Header />
                 </div>
-                <main>{children}</main>
+                <main className='h-full'>{children}</main>
             </body>
         </html>
     )

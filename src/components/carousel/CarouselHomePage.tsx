@@ -31,7 +31,7 @@ export default function CarouselHomePage() {
                             alt='carousel image 1'
                             style={{
                                 objectFit: 'cover',
-                                objectPosition: 'top center',
+                                objectPosition: 'top center', 
                             }}
                             fill
                         />
