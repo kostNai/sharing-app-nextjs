@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/header/Header'
+import Footer from '@/components/footer/Footer'
 
 const montserrat = Montserrat({
     variable: '--font-geist-sans',
@@ -21,12 +22,13 @@ export default function RootLayout({
     return (
         <html lang='en' className='h-full'>
             <body
-                className={`${montserrat.variable}  antialiased max-w-screen h-full`}
+                className={`${montserrat.variable}  antialiased max-w-screen min-h-screen flex flex-col justify-between`}
             >
                 <div className='w-full flex justify-center'>
                     <Header />
                 </div>
                 <main className='h-full'>{children}</main>
+                <Footer />
             </body>
         </html>
     )
