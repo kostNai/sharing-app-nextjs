@@ -4,6 +4,7 @@ import Noodles from '@/../public/img/noodles.jpg'
 import SimpleReceipCard from '@/components/simpleReceipCard/SimpleReceipCard'
 import BestRecipesList from '@/components/bestRecipesList/BestRecipesList'
 import Parallax from '@/components/parallax/Parallax'
+import SmallReceipCardList from '@/components/smallReceipCardsList/SmallReceipCardList'
 
 const data = [
     {
@@ -21,11 +22,11 @@ const data = [
 export default function Home() {
     return (
         <div className='max-w-screen  '>
-            <div className='px-16'>
+            <section className='px-16'>
                 <CarouselHomePage />
-            </div>
-            <div className='mt-20 w-full flex justify-center px-16'>
-                <div className='w-[1110px]'>
+            </section>
+            <section className='mt-20 w-full flex justify-center px-16'>
+                <div className='px-80'>
                     <div className='w-full flex justify-center gap-10'>
                         {data.map((item, indx) => (
                             <SimpleReceipCard
@@ -43,10 +44,13 @@ export default function Home() {
                         <BestRecipesList />
                     </div>
                 </div>
-            </div>
-            <div className='w-[calc(100vw-20px)]'>
+            </section>
+            <section className='w-[calc(100vw-20px)]'>
                 <Parallax />
-            </div>
+            </section>
+            <section className='mx-12 mt-10'>
+                <SmallReceipCardList />
+            </section>
         </div>
     )
 }

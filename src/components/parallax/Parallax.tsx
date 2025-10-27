@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function ParallaxPage() {
     return (
-        <div className='w-[calc(100vw-17px)] relative'>
+        <div className='mt-10 w-[calc(100vw-17px)] relative'>
             <div
                 className='h-[675px] bg-fixed bg-center bg-cover bg-no-repeat'
                 style={{ backgroundImage: "url('/img/parallax.jpg')" }}
@@ -27,14 +27,6 @@ export default function ParallaxPage() {
                     Усі рецепти
                 </Link>
             </div>
-            {/* <div className=' bg-red-500 text-white text-3xl flex items-center justify-center'>
-                Scroll Up and Down this page to see the parallax scrolling
-                effect.
-            </div> */}
-            {/* <div
-                className='h-screen bg-fixed bg-center bg-cover bg-no-repeat'
-                style={{ backgroundImage: "url('/img/parallax.jpg')" }}
-            /> */}
         </div>
     )
 }
