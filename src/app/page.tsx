@@ -5,6 +5,7 @@ import SimpleReceipCard from '@/components/simpleReceipCard/SimpleReceipCard'
 import BestRecipesList from '@/components/bestRecipesList/BestRecipesList'
 import Parallax from '@/components/parallax/Parallax'
 import SmallReceipCardList from '@/components/smallReceipCardsList/SmallReceipCardList'
+import Info from '@/components/info/Info'
 
 const data = [
     {
@@ -50,6 +51,9 @@ export default function Home() {
             </section>
             <section className='mx-12 mt-10'>
                 <SmallReceipCardList />
+            </section>
+            <section className='mx-12 mt-10'>
+                <Info />
             </section>
         </div>
     )

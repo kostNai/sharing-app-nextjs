@@ -18,7 +18,7 @@ export default function SmallReceipCard({
 }: Props) {
     return (
         <div className='flex gap-4 flex-[30%]'>
-            <div className='relative w-20 h-20'>
+            <div className='relative w-20 h-20 min-w-20'>
                 <Image src={img} fill alt='receip image' />
             </div>
             <div className='h-full flex flex-col justify-between'>
