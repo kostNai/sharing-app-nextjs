@@ -7,6 +7,8 @@ import Parallax from '@/components/parallax/Parallax'
 import SmallReceipCardList from '@/components/smallReceipCardsList/SmallReceipCardList'
 import Info from '@/components/info/Info'
 
+import InstaList from '@/components/instaList/InstaList'
+
 const data = [
     {
         imageSrc: Cake,
@@ -52,8 +54,11 @@ export default function Home() {
             <section className='mx-12 mt-10'>
                 <SmallReceipCardList />
             </section>
-            <section className='mx-12 mt-10'>
+            <section className='mx-12 mt-10 mb-20'>
                 <Info />
+            </section>
+            <section className='mt-10 border-t-2 border-t-solid border-t-gray-300'>
+                <InstaList />
             </section>
         </div>
     )
