@@ -3,6 +3,7 @@ import { Montserrat } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/header/Header'
 import Footer from '@/components/footer/Footer'
+import { Toaster } from '@/components/ui/sonner'
 
 const montserrat = Montserrat({
     variable: '--font-geist-sans',
@@ -28,6 +29,7 @@ export default function RootLayout({
                     <Header />
                 </div>
                 <main className='h-full'>{children}</main>
+                <Toaster position='top-center' richColors />
                 <Footer />
             </body>
         </html>
