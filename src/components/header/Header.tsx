@@ -3,6 +3,42 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { IoIosArrowDown } from 'react-icons/io'
 import { FaSearch } from 'react-icons/fa'
+import { MdLogin } from 'react-icons/md'
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from '@/components/ui/tooltip'
+
+const dataLinks = [
+    {
+        href: '/',
+        name: 'ДОМАШНЯ',
+        icon: <IoIosArrowDown />,
+    },
+    {
+        href: '/pages',
+        name: 'СТОРІНКИ',
+        icon: <IoIosArrowDown />,
+    },
+    {
+        href: '/mega-menu',
+        name: 'MEGA MENU',
+        icon: <IoIosArrowDown />,
+    },
+    {
+        href: '/receips',
+        name: 'РЕЦЕПТИ',
+    },
+    {
+        href: '/vegans',
+        name: 'ДЛЯ ВЕГАНІВ',
+    },
+    {
+        href: '/contacts',
+        name: 'КОНТАКТИ',
+    },
+]
 
 export default function Header() {
     const pathName = usePathname()
@@ -17,72 +53,46 @@ export default function Header() {
             </div>
             <div>
                 <nav className='flex gap-4 font-semibold'>
-                    <Link
-                        href='/'
-                        className={`px-8 py-4 transition duration-300 cursor-pointer ${
-                            pathName === '/'
-                                ? 'bg-[#40BA37] border-b-4 border-b-solid border-b-[#1C8314] text-white'
-                                : ''
-                        }`}
-                    >
-                        ДОМАШНЯ
-                    </Link>
-                    <Link
-                        href='/pages'
-                        className={`flex items-center gap-1 px-8 py-4 transition duration-300 cursor-pointer ${
-                            pathName === '/pages'
-                                ? 'bg-[#40BA37] border-b-4 border-b-solid border-b-[#1C8314] text-white'
-                                : ''
-                        }`}
-                    >
-                        СТОРІНКИ
-                        <IoIosArrowDown />
-                    </Link>
-                    <Link
-                        href='/menu'
-                        className={`flex items-center gap-1 px-8 py-4 transition duration-300 cursor-pointer ${
-                            pathName === '/menu'
-                                ? 'bg-[#40BA37] border-b-4 border-b-solid border-b-[#1C8314] text-white'
-                                : ''
-                        }`}
-                    >
-                        MEGA MENU
-                        <IoIosArrowDown />
-                    </Link>
-                    <Link
-                        href='/recipes'
-                        className={`px-8 py-4 transition duration-300 cursor-pointer ${
-                            pathName === '/recipes'
-                                ? 'bg-[#40BA37] border-b-4 border-b-solid border-b-[#1C8314] text-white'
-                                : ''
-                        }`}
-                    >
-                        РЕЦЕПТИ
-                    </Link>
-                    <Link
-                        href='/vegans'
-                        className={`px-8 py-4 transition duration-300 cursor-pointer ${
-                            pathName === '/vegans'
-                                ? 'bg-[#40BA37] border-b-4 border-b-solid border-b-[#1C8314] text-white'
-                                : ''
-                        }`}
-                    >
-                        ДЛЯ ВЕГАНІВ
-                    </Link>
-                    <Link
-                        href='/contacts'
-                        className={`px-8 py-4 transition duration-300 cursor-pointer ${
-                            pathName === '/contacts'
-                                ? 'bg-[#40BA37] border-b-4 border-b-solid border-b-[#1C8314] text-white'
-                                : ''
-                        }`}
-                    >
-                        КОНТАКТИ
-                    </Link>
+                    {dataLinks.map((link, indx) => (
+                        <Link
+                            key={indx}
+                            href={link.href}
+                            className={`flex items-center gap-1 px-8 py-4 transition duration-300 cursor-pointer ${
+                                pathName === link.href
+                                    ? 'bg-[#40BA37] border-b-4 border-b-solid border-b-[#1C8314] text-white'
+                                    : ''
+                            }`}
+                        >
+                            {link.name}
+                            {link.icon ? link.icon : ''}
+                        </Link>
+                    ))}
                 </nav>
             </div>
-            <div>
-                <FaSearch className='text-gray-400 transition duration-300 cursor-pointer hover:text-[#40BA37]' />
+            <div className='flex gap-8 items-center'>
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <Link href='/login'>
+                            <MdLogin
+                                size={20}
+                                className='text-gray-400 transition duration-300 cursor-pointer hover:text-[#40BA37]'
+                            />
+                        </Link>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                        <p>Вхід</p>
+                    </TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <Link href='/login'>
+                            <FaSearch className='text-gray-400 transition duration-300 cursor-pointer hover:text-[#40BA37]' />
+                        </Link>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                        <p>Пошук</p>
+                    </TooltipContent>
+                </Tooltip>
             </div>
         </header>
     )
